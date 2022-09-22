@@ -1,0 +1,27 @@
+#include <iostream>
+#include<time.h>
+using namespace std;
+int main() 
+{
+    clock_t start, end;
+    double runTime;
+    start = clock();
+    int i, num = 1, primes = 0;
+    while (num <= 1000) 
+	{ 
+        i = 2; 
+        while (i <= num) 
+		{ 
+            if(num % i == 0)
+                break;
+            i++; 
+        }
+        if (i == num)
+            primes++;
+        cout<<" \n prime numbers calculated"<<primes;
+        num++;
+    }
+    end = clock();
+    runTime = (end - start) / (double) CLOCKS_PER_SEC;
+    cout<<"This machine calculated all  prime numbers under 1000 in seconds\n"<<primes<<runTime;
+}
